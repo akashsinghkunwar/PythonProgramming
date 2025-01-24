@@ -8,16 +8,15 @@ class Solution(object):
         j = 0
 
         for i in range(1, len(nums)):
-
             if nums[i] != nums[j]:
                 j += 1
                 nums[j] = nums[i]
-        
 
-        return j+1
-    
+        return j + 1
+
+
 d = Solution()
-nums = [1,2,2]
+nums = [1, 2, 2]
 
 
 index = d.removeDuplicates(nums)
