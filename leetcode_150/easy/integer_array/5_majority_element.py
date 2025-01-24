@@ -1,3 +1,26 @@
+class Solution(object):
+    def majorityElement(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        major = None
+        count = 0
+
+        for num in nums:
+            if count == 0:
+                major = num
+
+            count += 1 if num == major else -1
+        return major
+
+
+d = Solution()
+nums = [2, 2, 1, 1, 1, 2, 2]
+
+res = d.majorityElement(nums)
+print(res)
+
 """
 Given an array nums of size n, return the majority element.
 
