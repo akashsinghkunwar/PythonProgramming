@@ -1,3 +1,33 @@
+class Solution(object):
+    def convert(self, s, numRows):
+        """
+        :type s: str
+        :type numRows: int
+        :rtype: str
+        """
+        if numRows == 1 or numRows >= len(s):
+            return s
+
+        rows = [""] * min(numRows, len(s))
+        currRow = 0
+        down = False
+
+        for c in s:
+            rows[currRow] += c
+            if currRow == 0 or currRow == numRows - 1:
+                down = not down
+            currRow += 1 if down else -1
+        return "".join(rows)
+
+
+d = Solution()
+strs = "PAYPALISHIRING"
+
+res = d.convert(strs, 3)
+print(res)
+res = d.convert(strs, 4)
+print(res)
+
 """
 The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
 
